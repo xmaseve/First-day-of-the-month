@@ -3,14 +3,17 @@ lastmth = INTNX( 'month', date(), -1, 'begin' );
 lastmonth = put(INTNX( 'month', date(), -1, 'begin' ),date9.);
 lastyear = put(intnx('year', lastmth, -1,'s'), date9.);
 month = propcase(substr(lastmonth,3,3));
-month_string = "'"||lastmonth||"'";
-year_string = "'"||lastyear||"'";
-call symput("monthstring",month_string);
-call symput("yearstring",year_string);
+lastmonth_string = "'"||lastmonth||"'";
+lastyear_string = "'"||lastyear||"'";
+month_string = "'"||month||"'";
+call symput("lastmth",lastmonth_string);
+call symput("lastyr",lastyear_string);
+call symput("mon",month_string);
 run;
 
-%put &yearstring;
-%put &monthstring;
+%put &lastmth;
+%put &lastyr;
+%put &mon;
 
 proc print data=two;run;
 
